@@ -1,0 +1,62 @@
+h1,
+h2,
+p {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    margin: 0 10px;
+    background-color: white;
+}
+
+.header {
+    background-color: orange;
+    max-width: 100%;
+    margin: 0px 0px 0px 0px;
+    min-height: 40px;
+
+}
+
+.navegacion {
+    background-color: wheat;
+    width: 25%;
+    margin: 5px 5px 5px 0px;
+
+}
+
+.historia {}
+
+.main {
+    background-color: cadetblue;
+    max-width: 1000px;
+    margin: 5px;
+
+}
+
+.pokemon {
+    display: flex;
+}
+
+img,
+video {
+    max-width: 300px;
+}
+
+.video {
+    width: 100%;
+    max-width: 500px;
+    height: auto !important;
+    display: block;
+}
+
+.ads {
+    background-color: wheat;
+    width: 25%;
+    margin: 5px;
+}
+
+footer {
+    background-color: black;
+    min-height: 40px;
+}
