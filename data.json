@@ -1,0 +1,79 @@
+{
+  "trio": [
+    {
+      "id": "dialga",
+      "name": "Dialga",
+      "num": "483",
+      "title": "The Temporal Pokémon",
+      "domain": "Lord of Time",
+      "types": [
+        "Steel",
+        "Dragon"
+      ],
+      "color": "#4488ff",
+      "accent": "#88bbff",
+      "glow": "rgba(68,136,255,0.38)",
+      "dex": "Dialga has the power to control time. It is said that time began moving when Dialga was born. It is spoken of in legend as a deity of time.",
+      "lore": "In the creation myth of Sinnoh, Arceus forged Dialga from the Adamant Orb — a crystalline jewel saturated with temporal energy. Every heartbeat of Dialga advances the flow of time in the mortal realm; when it draws in breath, time itself pauses. Ancient inscriptions at the Spear Pillar describe a catastrophic clash where Dialga's fury and Palkia's wrath tore holes between dimensions, threatening to unravel creation entirely. Despite its terrifying power, Dialga is not inherently malevolent — it seeks only to maintain the forward march of time, the rhythm upon which all life depends.",
+      "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/483.png",
+      "stats": {
+        "HP": 100,
+        "ATK": 120,
+        "DEF": 120,
+        "SP.ATK": 150,
+        "SP.DEF": 100,
+        "SPD": 90
+      }
+    },
+    {
+      "id": "palkia",
+      "name": "Palkia",
+      "num": "484",
+      "title": "The Spatial Pokémon",
+      "domain": "Lord of Space",
+      "types": [
+        "Water",
+        "Dragon"
+      ],
+      "color": "#dd66ee",
+      "accent": "#ff99ff",
+      "glow": "rgba(221,102,238,0.38)",
+      "dex": "It has the ability to distort space. Described as a deity in Sinnoh mythology, Palkia lives in a gap in the spatial dimension and stabilises space.",
+      "lore": "Born from the Lustrous Orb, Palkia shimmers with the pale luminescence of the spatial dimension. It commands all of space — collapsing vast distances into nothing, tearing apertures between parallel worlds, reshaping the very architecture of reality. Where Dialga rules the when, Palkia governs the where. Their eternal rivalry was woven into existence the moment each was created: two primordial forces, time and space, destined to clash yet incapable of existing without each other. The balance they maintain, however violently, is what keeps the universe coherent.",
+      "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/484.png",
+      "stats": {
+        "HP": 90,
+        "ATK": 120,
+        "DEF": 100,
+        "SP.ATK": 150,
+        "SP.DEF": 120,
+        "SPD": 100
+      }
+    },
+    {
+      "id": "giratina",
+      "name": "Giratina",
+      "num": "487",
+      "title": "The Renegade Pokémon",
+      "domain": "Lord of Antimatter",
+      "types": [
+        "Ghost",
+        "Dragon"
+      ],
+      "color": "#9966cc",
+      "accent": "#cc99ff",
+      "glow": "rgba(153,102,204,0.38)",
+      "dex": "It was banished for its violence. It silently gazed upon the old world from the Distortion World. It is said to live in a world on the reverse side of ours.",
+      "lore": "Created not to govern a named force but to provide the dark counterbalance that the universe secretly required, Giratina's chaotic nature led Arceus to cast it into the Distortion World — a mirror dimension where gravity inverts, distance has no meaning, and Giratina's power is absolute. Yet even in exile, Giratina serves a critical purpose: it watches the boundary between worlds, ensuring that neither time nor space grows so powerful it consumes the other. The renegade is not creation's failure — it is its most necessary, most misunderstood guardian.",
+      "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/487.png",
+      "stats": {
+        "HP": 150,
+        "ATK": 100,
+        "DEF": 120,
+        "SP.ATK": 100,
+        "SP.DEF": 120,
+        "SPD": 90
+      }
+    }
+  ]
+}
