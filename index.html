@@ -1,77 +1,139 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Trío de la Creación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
-
 <body>
-    <header>
-        <div class="header">
-            <h1>El mundo pokemons</h1>
+  <canvas id="starfield"></canvas>
+  <div class="nebula"></div>
+
+  <div class="holy-grail">
+
+    <!-- ── HEADER ── -->
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-logo">✦</div>
+        <div>
+          <h1 class="brand-title">The Creation Trio</h1>
+          <p class="brand-sub">Dialga · Palkia · Giratina</p>
         </div>
+      </div>
+      <button id="music-btn" class="music-btn" type="button">
+        <span class="music-note">♪</span>
+        <span id="music-label">Música OFF</span>
+        <span class="music-dot"></span>
+      </button>
     </header>
-    <div class="container">
 
+    <!-- ── NAV ── -->
+    <nav class="panel-nav">
+      <p class="label nav-label">Secciones</p>
+      <button class="nav-btn" data-goto="overview" style="--c:#c0a0ff"><span>◈</span>Overview</button>
+      <button class="nav-btn" data-goto="lore" style="--c:#d4a017"><span>📜</span>Historia</button>
+      <button class="nav-btn" data-goto="dialga" style="--c:#4488ff"><span>⏱</span>Dialga</button>
+      <button class="nav-btn" data-goto="palkia" style="--c:#dd66ee"><span>🌌</span>Palkia</button>
+      <button class="nav-btn" data-goto="giratina" style="--c:#9966cc"><span>👁</span>Giratina</button>
 
-        <nav class="navegacion">
-            <ul></ul>
-            <li><a href="">Trio de la creacion</a></li>
-            <li><a href="">Video</a></li>
-        </nav>
-        <main class="main">
-            <div class="historia">
-                <h2>El trio de la creación</h2>
-                <p>
-                    Arceus, el dios de los pokemons, creo a Palkia el pokemon legendario que se encarga de la
-                    existencia del espacio y tiene la habilidad de distorsionar el espacio, controlar las conexiones de
-                    este
-                    abriendo portales y así poder viajar entre dimensiones a su total antojo. A continuación Arceus
-                    crearia
-                    a Dialga el pokemon legendario que se encaga del tiempo, y con ello empezó a correr el tiempo en el
-                    mundo terrenal, y por ultimo Arceus creo a Giratina, el cual fue desterrado y vive en un universo
-                    paralelo, del que es guardián. Este sitio se trata del Mundo Distorsión, un lugar opuesto al mundo
-                    real,
-                    en donde las leyes desafían al sentido común y no hay distinción entre cielo y tierra. Estos tres
-                    pokemons fueron creados con el proposito de dar forma al universo mismo.
-                </p>
+      <div class="mini-list">
+        <p class="label">Legendarios</p>
+        <div id="mini-list"><!-- JS: bucle sobre el trío --></div>
+      </div>
+    </nav>
+
+    <!-- ── MAIN ── -->
+    <main>
+      <section id="overview" class="hero">
+        <p class="hero-eyebrow">Mitología de Sinnoh · Pokémon Generation IV</p>
+        <h1 class="hero-title">El Trío de la Creación</h1>
+        <p class="hero-sub">Tiempo · Espacio · Antimateria</p>
+
+        <div class="hero-grid">
+          <div class="hero-img">
+            <img src="./creation-trio.png" alt="El Trío de la Creación — Palkia, Giratina, Dialga" />
+            <div class="hero-caption">
+              <p>Palkia · Giratina · Dialga</p>
+              <p>Spear Pillar, Sinnoh</p>
             </div>
-            <div class="pokemon">
-                <div>
-                    <h3>
-                        Palkia: Tipo Dragon/Agua.
-                    </h3>
-                    <h3>
-                        Dialga: Tipo Dragon/Acero.
-                    </h3>
-                    <h3>
-                        Giratina: Tipo Dragin:Fantasma.
-                    </h3>
-                </div>
-                <div class="imagenes">
-                    <img src="./img/1200px-Ilustración_de_Giratina,_Dialga_y_Palkia_en_la_Columna_Lanza.png" alt="">
-                </div>
-              
-                <video class="video" width="640" height="360" controls>
-                    <source src="./img/Dialga vs Palkia.mp4" type="video/mp4">
-                    Tu navegador no soporta la reproducción de video.
-                </video>
-
-
+          </div>
+          <div>
+            <p class="label video-label">Video del Trío</p>
+            <div class="video" style="--g:rgba(128,68,255,0.4)">
+              <div class="video-ratio">
+                <iframe src="./Dialga vs Palkia.mp4"
+                  title="El Trío de la Creación" loading="lazy" allowfullscreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+              </div>
             </div>
+          </div>
+        </div>
 
-        </main>
-        <aside class="ads">
-            <img src="" alt="">
-        </aside>
-    </div>
+        <div class="cards" id="cards"><!-- JS: bucle sobre el trío --></div>
+      </section>
 
-    <footer></footer>
+      <section id="lore" class="lore-section">
+        <div class="lore-inner">
+          <p class="label lore-eyebrow">Mitología Antigua de Sinnoh</p>
+          <h2 class="lore-title">El Origen de la Creación</h2>
+          <p class="lore-p">En el principio, antes de que el tiempo tuviera nombre y el espacio no tuviera límites, solo existía Arceus — el primero, el único, el alfa. Desde el vacío infinito, Arceus forjó la creación con sus mil brazos, moldeando el cosmos desde la nada. Sin embargo, un universo sin orden es caos, y el caos no puede sostener la vida.</p>
+          <p class="lore-p">Así, Arceus creó tres seres de poder inconmensurable, cada uno encargado de gobernar una fuerza fundamental de la existencia. Del Orbe Adamantino nació Dialga — y el tiempo comenzó a fluir. Del Orbe Lustroso emergió Palkia — y el espacio se extendió hasta el infinito. Juntos, estos dos titanes dieron forma al universo: un principio, un medio y un fin; un aquí, un allá y más allá.</p>
+          <p class="lore-p">Pero la creación necesitaba más que tiempo y espacio. Necesitaba la sombra de ambos — la antimateria que equilibrara las escalas de la existencia. De esta necesidad nació Giratina. Salvaje, violento e indomable, Giratina rechazó el mundo ordenado y amenazó con deshacer lo que había sido creado. Arceus arrojó al renegado al Mundo Distorsión, una dimensión espejo donde la realidad se dobla al revés.</p>
+          <p class="lore-p gold">Incluso en el exilio, Giratina cumple su propósito. Desde el Mundo Distorsión, vigila el límite entre el mundo real y su opuesto, asegurando que ni el tiempo ni el espacio se descontrolen. Los tres forman un triángulo eterno — no de armonía, sino de tensión necesaria. Donde uno crece demasiado poderoso, los otros lo mantienen en equilibrio.</p>
+        </div>
+      </section>
+
+      <div id="pokemon-sections"><!-- JS: bucle sobre el trío --></div>
+    </main>
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="panel-sidebar">
+      <p class="label side-label">Info Rápida</p>
+
+      <div class="side-box">
+        <p class="label">GENERACIÓN</p>
+        <p class="side-value">Generation IV</p>
+        <p class="side-sub">Región Sinnoh</p>
+      </div>
+      <div class="side-box">
+        <p class="label">CREADOR</p>
+        <p class="side-value">Arceus</p>
+        <p class="side-sub">El Primigenio</p>
+      </div>
+      <div class="side-box">
+        <p class="label">CATEGORÍA</p>
+        <p class="side-value">Legendarios</p>
+        <p class="side-sub">Trío de Creación</p>
+      </div>
+
+      <div class="side-box games">
+        <p class="label">VIDEOJUEGOS</p>
+        <p class="game">Pokémon Diamond</p>
+        <p class="game">Pokémon Pearl</p>
+        <p class="game">Pokémon Platinum</p>
+        <p class="game">Brilliant Diamond</p>
+        <p class="game">Shining Pearl</p>
+        <p class="game">Legends: Arceus</p>
+      </div>
+
+      <div class="side-box side-types">
+        <p class="label">TIPOS</p>
+        <div id="side-types"><!-- JS: bucle sobre el trío --></div>
+      </div>
+    </aside>
+
+    <!-- ── FOOTER ── -->
+    <footer class="site-footer">
+      <p>EL TRÍO DE LA CREACIÓN · MITOLOGÍA DE SINNOH</p>
+      <p>Pokémon es marca registrada de Nintendo / Creatures Inc. / GAME FREAK inc. · Página de tributo fan</p>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
 </body>
-
-
 </html>
