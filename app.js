@@ -115,76 +115,53 @@ function starField() {
 }
 
 // ─── Música ambiental (Web Audio) ──────────────────────────────────────────
-function cosmicAudio() {
+function musicPlayer() {
   const btn = $('music-btn');
   const label = $('music-label');
-  let ctx = null, master = null, playing = false;
+  const audio = $('bg-music');
+  audio.volume = 0.4;
 
-  const ui = () => {
-    btn.classList.toggle('on', playing);
-    label.textContent = playing ? 'Música ON' : 'Música OFF';
+  const ui = (on) => {
+    btn.classList.toggle('on', on);
+    label.textContent = on ? 'Música ON' : 'Música OFF';
   };
 
-  const build = () => {
-    ctx = new AudioContext();
-    master = ctx.createGain();
-    master.gain.value = 0;
-    master.connect(ctx.destination);
+  const play = async () => {
+    try {
+      await audio.play();
+      ui(true);
+      return true;
+    } catch {
+      return false; // bloqueado por el navegador
+    }
+  };
 
-    const d1 = ctx.createDelay(3); d1.delayTime.value = 0.38;
-    const d2 = ctx.createDelay(3); d2.delayTime.value = 0.82;
-    const fb1 = ctx.createGain(); fb1.gain.value = 0.32;
-    const fb2 = ctx.createGain(); fb2.gain.value = 0.26;
-    const wet = ctx.createGain(); wet.gain.value = 0.38;
-    const dry = ctx.createGain(); dry.gain.value = 0.52;
-    d1.connect(fb1); fb1.connect(d2); d2.connect(fb2); fb2.connect(d1);
-    d1.connect(wet); d2.connect(wet); wet.connect(master); dry.connect(master);
+  // Botón: alterna play/pausa
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation(); // evita que dispare también el arranque automático
+    if (audio.paused) play();
+    else { audio.pause(); ui(false); }
+  });
 
-    const addOsc = (freq, type, gain, lfoRate = 0.07) => {
-      const osc = ctx.createOscillator();
-      const g = ctx.createGain();
-      const lp = ctx.createBiquadFilter();
-      osc.type = type; osc.frequency.value = freq;
-      lp.type = 'lowpass'; lp.frequency.value = Math.min(freq * 6, 6000); lp.Q.value = 0.6;
-      g.gain.value = gain;
-      osc.connect(lp); lp.connect(g); g.connect(dry); g.connect(d1);
-      const lfo = ctx.createOscillator();
-      const lfoG = ctx.createGain();
-      lfo.frequency.value = lfoRate + Math.random() * 0.03;
-      lfoG.gain.value = freq * 0.004;
-      lfo.connect(lfoG); lfoG.connect(osc.frequency);
-      lfo.start(); osc.start();
+  // 1) Intentar autoplay al cargar
+  play().then((ok) => {
+    if (ok) return;
+
+    // 2) Si falla, arrancar en la primera interacción
+    const events = ['pointerdown', 'keydown', 'touchend'];
+    const unlock = async () => {
+      if (await play()) {
+        events.forEach(ev => document.removeEventListener(ev, unlock));
+      }
     };
-
-    const base = 55; // A1
-    addOsc(base * 0.5, 'sine', 0.28, 0.04);
-    addOsc(base,       'sine', 0.38);
-    addOsc(base * 2,   'sine', 0.22);
-    addOsc(base * 1.5, 'sine', 0.16, 0.09);
-    addOsc(base * 3,   'triangle', 0.10);
-    addOsc(base * 4,   'sine', 0.06);
-    addOsc(base * 6,   'sine', 0.03, 0.05);
-  };
-
-  const start = () => {
-    if (!ctx) build();
-    ctx.resume();
-    master.gain.setTargetAtTime(0.32, ctx.currentTime, 1.2);
-    playing = true; ui();
-  };
-  const stop = () => {
-    master.gain.setTargetAtTime(0, ctx.currentTime, 0.9);
-    setTimeout(() => { if (!playing) ctx.suspend(); }, 1600);
-    playing = false; ui();
-  };
-
-  btn.addEventListener('click', () => (playing ? stop() : start()));
+    events.forEach(ev => document.addEventListener(ev, unlock));
+  });
 }
 
 // ─── Inicio ────────────────────────────────────────────────────────────────
 async function init() {
   starField();
-  cosmicAudio();
+  musicPlayer();
   try {
     const res = await fetch('data.json');
     if (!res.ok) throw new Error(res.status);
